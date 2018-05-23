@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './css/App.css';
+import './App.css';
 import { Menu, Icon, Modal } from 'antd';
 
 import Login from './components/Login';
