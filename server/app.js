@@ -14,6 +14,18 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// DB connection through Mongoose
+const options = {
+  server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+  replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
+}; // Just a bunch of options for the db connection
+mongoose.Promise = global.Promise;
+// Don't forget to substitute it with your connection string
+mongoose.connect('mongodb://localhost/final', options);
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
