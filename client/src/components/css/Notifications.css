@@ -1,0 +1,47 @@
+.notifications {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.notification-item {
+  margin: 20px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+  padding: 30px;
+}
+
+.notification-header {
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  padding: 20px;
+}
+
+.notification-content {
+  padding: 20px;
+}
+
+.notification-send {
+  width: 30%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.ant-input {
+  margin: 20px 0;
+}
+
+/* Topics */
+.notification-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.notification-header-item .ant-btn {
+  margin-right: 20px;
+}
