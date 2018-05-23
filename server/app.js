@@ -33,9 +33,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use('/', index);
-app.use('/users', users);
+
+// user api
+app.route('/users')
+  .get(users.getUsers)
+  .post(users.createUser);
+
+app.post('/users/login', users.userLogin);
+
+app.route('/users/:id')
+  .get(users.getUser)
+  .post(users.updateUser);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
