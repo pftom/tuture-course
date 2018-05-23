@@ -59,6 +59,11 @@ app.route('/topics/:id')
 
 app.post('/topics/:id/updateTitle', topics.updateTopicTitle);
 
+// notification api
+app.route('/notifications')
+  .get(notifications.getNotifications)
+  .post(notifications.createNotification);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
