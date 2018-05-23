@@ -48,6 +48,17 @@ app.route('/users/:id')
   .get(users.getUser)
   .post(users.updateUser);
 
+// topics api
+app.route('/topics')
+  .get(topics.getTopics)
+  .post(topics.createTopic);
+
+app.route('/topics/:id')
+  .post(topics.updateTopic)
+  .delete(topics.deleteTopic);
+
+app.post('/topics/:id/updateTitle', topics.updateTopicTitle);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
