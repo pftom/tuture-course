@@ -1,0 +1,117 @@
+diff --git a/server/app.js b/server/app.js
+index ffae029..1a177c6 100644
+--- a/server/app.js
++++ b/server/app.js
+@@ -48,6 +48,17 @@ app.route('/users/:id')
+   .get(users.getUser)
+   .post(users.updateUser);
+ 
++// topics api
++app.route('/topics')
++  .get(topics.getTopics)
++  .post(topics.createTopic);
++
++app.route('/topics/:id')
++  .post(topics.updateTopic)
++  .delete(topics.deleteTopic);
++
++app.post('/topics/:id/updateTitle', topics.updateTopicTitle);
++
+ // catch 404 and forward to error handler
+ app.use(function(req, res, next) {
+   var err = new Error('Not Found');
+diff --git a/server/routes/topics.js b/server/routes/topics.js
+new file mode 100644
+index 0000000..bcfced1
+--- /dev/null
++++ b/server/routes/topics.js
+@@ -0,0 +1,88 @@
++const Topics = require('../models/topics');
++const Users = require('../models/users');
++
++const getTopics = (req, res) => {
++  Topics.find(null, null, (err, topics) => {
++    if (err) {
++      res.send(err);
++    }
++
++    res.json(topics);
++  });
++};
++
++const createTopic = (req, res) => {
++  let newTopic = Object.assign(new Topics(), req.body);
++
++  newTopic.save((err, topic) => {
++    if (err) {
++      res.send(err);
++    }
++    res.json(topic);
++  });
++}
++
++const updateTopic = async (req, res) => {
++  const { id } = req.params;
++  
++  const topic = await Topics.findById({ _id: id });
++  const { selectedPerson } = topic;
++
++  const { person } = req.body;
++  const newSelectedPerson = selectedPerson.concat(person);
++
++  try {
++    await Topics.updateOne({ _id: id }, { selectedPerson: newSelectedPerson });
++    await Users.updateOne({ name: person }, { isSelected: true });
++    res.json({ message: 'Successfully updated' });
++  } catch (err) {
++    res.send(err);
++  }
++}
++
++const updateTopicTitle = async (req, res) => {
++  const { id } = req.params;
++
++  const { title } = req.body;
++  console.log('title', title);
++
++  try {
++    const topic = await Topics.updateOne({ _id: id }, { title: title });
++    res.json({ message: 'Successfully updated title' });
++  } catch (err) {
++    res.send(err);
++  }
++}
++
++const deleteTopic = async (req, res) => {
++  const { id } = req.params;
++
++  const topic = await Topics.findOne({ _id: id });
++
++  const { selectedPerson } = topic;
++
++  if (Array.isArray(selectedPerson)) {
++    await selectedPerson.map(async (person) => {
++      try {
++        await Users.updateOne({ name: person }, { isSelected: false });
++      } catch (err) {
++        res.send(err);
++      }
++    });
++  }
++
++  try {
++    await Topics.deleteOne({ _id: id });
++    res.json({ message: 'Successfully deleted' });
++  } catch (err) {
++
++  }
++};
++
++module.exports = {
++  createTopic,
++  getTopics,
++  deleteTopic,
++  updateTopic,
++  updateTopicTitle,
++};
+\ No newline at end of file

@@ -1,0 +1,81 @@
+diff --git a/.DS_Store b/.DS_Store
+new file mode 100644
+index 0000000..848639f
+Binary files /dev/null and b/.DS_Store differ
+diff --git a/server/.DS_Store b/server/.DS_Store
+new file mode 100644
+index 0000000..0148d2a
+Binary files /dev/null and b/server/.DS_Store differ
+diff --git a/server/app.js b/server/app.js
+index 06548a0..d39c8fe 100644
+--- a/server/app.js
++++ b/server/app.js
+@@ -14,6 +14,18 @@ var app = express();
+ app.set('views', path.join(__dirname, 'views'));
+ app.set('view engine', 'jade');
+ 
++// DB connection through Mongoose
++const options = {
++  server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
++  replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
++}; // Just a bunch of options for the db connection
++mongoose.Promise = global.Promise;
++// Don't forget to substitute it with your connection string
++mongoose.connect('mongodb://localhost/final', options);
++
++const db = mongoose.connection;
++db.on('error', console.error.bind(console, 'connection error:'));
++
+ // uncomment after placing your favicon in /public
+ //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+ app.use(logger('dev'));
+diff --git a/server/models/notifications.js b/server/models/notifications.js
+new file mode 100644
+index 0000000..82c28f2
+--- /dev/null
++++ b/server/models/notifications.js
+@@ -0,0 +1,9 @@
++const mongoose = require('mongoose');
++const Schema = mongoose.Schema;
++
++const notificationsSchema = new Schema({
++  title: String,
++  content: String,
++});
++
++module.exports = mongoose.model('Notifications', notificationsSchema);
+\ No newline at end of file
+diff --git a/server/models/topics.js b/server/models/topics.js
+new file mode 100644
+index 0000000..743f99d
+--- /dev/null
++++ b/server/models/topics.js
+@@ -0,0 +1,9 @@
++const mongoose = require('mongoose');
++const Schema = mongoose.Schema;
++
++const topicsSchema = new Schema({
++  title: String,
++  selectedPerson: { type: [String], default: [] },
++});
++
++module.exports = mongoose.model('Topics', topicsSchema);
+\ No newline at end of file
+diff --git a/server/models/users.js b/server/models/users.js
+new file mode 100644
+index 0000000..8c027ae
+--- /dev/null
++++ b/server/models/users.js
+@@ -0,0 +1,11 @@
++const mongoose = require('mongoose');
++const Schema = mongoose.Schema;
++
++const usersSchema = new Schema({
++  userName: String,
++  name: String,
++  identity: String,
++  isSelected: Boolean,
++});
++
++module.exports = mongoose.model('Users', usersSchema);
+\ No newline at end of file

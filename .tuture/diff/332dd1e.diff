@@ -1,0 +1,31 @@
+diff --git a/server/app.js b/server/app.js
+index 907702d..f82db05 100644
+--- a/server/app.js
++++ b/server/app.js
+@@ -4,9 +4,13 @@ var favicon = require('serve-favicon');
+ var logger = require('morgan');
+ var cookieParser = require('cookie-parser');
+ var bodyParser = require('body-parser');
++var cors = require('cors');
++var mongoose = require('mongoose');
+ 
+ var index = require('./routes/index');
+ var users = require('./routes/users');
++var notifications = require('./routes/notifications');
++var topics = require('./routes/topics');
+ 
+ var app = express();
+ 
+diff --git a/server/bin/www b/server/bin/www
+index b09c4b4..c05e968 100755
+--- a/server/bin/www
++++ b/server/bin/www
+@@ -12,7 +12,7 @@ var http = require('http');
+  * Get port from environment and store in Express.
+  */
+ 
+-var port = normalizePort(process.env.PORT || '3000');
++var port = normalizePort(process.env.PORT || '4000');
+ app.set('port', port);
+ 
+ /**

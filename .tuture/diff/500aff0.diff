@@ -1,0 +1,53 @@
+diff --git a/server/app.js b/server/app.js
+index 1a177c6..907702d 100644
+--- a/server/app.js
++++ b/server/app.js
+@@ -59,6 +59,11 @@ app.route('/topics/:id')
+ 
+ app.post('/topics/:id/updateTitle', topics.updateTopicTitle);
+ 
++// notification api
++app.route('/notifications')
++  .get(notifications.getNotifications)
++  .post(notifications.createNotification);
++
+ // catch 404 and forward to error handler
+ app.use(function(req, res, next) {
+   var err = new Error('Not Found');
+diff --git a/server/routes/notifications.js b/server/routes/notifications.js
+new file mode 100644
+index 0000000..763cd6e
+--- /dev/null
++++ b/server/routes/notifications.js
+@@ -0,0 +1,30 @@
++const Notifications = require('../models/notifications');
++
++const getNotifications = (req, res) => {
++  Notifications.find(null, null, (err, notifications) => {
++    if (err) {
++      res.send(err);
++    }
++
++    res.json(notifications);
++  });
++}
++
++const createNotification = (req, res) => {
++  console.log('req.body', req.body);
++  let newNotification = Object.assign(new Notifications(), req.body);
++  console.log('newNotification', newNotification);
++
++  newNotification.save((err, notification) => {
++    if (err) {
++      res.send(err);
++    }
++
++    res.json({ message: 'Notification created successfully' });
++  });
++}
++
++module.exports = {
++  getNotifications,
++  createNotification,
++};
+\ No newline at end of file

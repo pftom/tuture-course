@@ -1,0 +1,106 @@
+diff --git a/server/app.js b/server/app.js
+index d39c8fe..ffae029 100644
+--- a/server/app.js
++++ b/server/app.js
+@@ -33,9 +33,20 @@ app.use(bodyParser.json());
+ app.use(bodyParser.urlencoded({ extended: false }));
+ app.use(cookieParser());
+ app.use(express.static(path.join(__dirname, 'public')));
++app.use(cors());
+ 
+ app.use('/', index);
+-app.use('/users', users);
++
++// user api
++app.route('/users')
++  .get(users.getUsers)
++  .post(users.createUser);
++
++app.post('/users/login', users.userLogin);
++
++app.route('/users/:id')
++  .get(users.getUser)
++  .post(users.updateUser);
+ 
+ // catch 404 and forward to error handler
+ app.use(function(req, res, next) {
+diff --git a/server/routes/users.js b/server/routes/users.js
+index 623e430..f5b3546 100644
+--- a/server/routes/users.js
++++ b/server/routes/users.js
+@@ -1,9 +1,68 @@
+-var express = require('express');
+-var router = express.Router();
++const Users = require('../models/users');
+ 
+-/* GET users listing. */
+-router.get('/', function(req, res, next) {
+-  res.send('respond with a resource');
+-});
++const getUsers = (req, res) => {
++  Users.find(null, null, (err, users) => {
++    if (err) {
++      res.send(err);
++    }
+ 
+-module.exports = router;
++    res.json(users);
++  });
++};
++
++const getUser = (req, res) => {
++  const { id } = req.params;
++
++  Users.findById({ _id: id }, (err, user) => {
++    if (err) {
++      res.send(err);
++    }
++
++    res.json(user);
++  });
++}
++
++const updateUser = (req, res) => {
++  const { id } = req.params;
++  
++  Users.updateOne({ _id: id }, { isSelected: true }, (err) => {
++    if (err) {
++      res.send(err);
++    }
++
++    res.json({ message: 'user updated' });
++  });
++}
++
++const createUser = (req, res) => {
++  let user = Object.assign(new Users(), req.body);
++
++  user.save(err => {
++    if (err) {
++      res.send(err);
++    }
++
++    res.json({ message: 'user created' });
++  });
++}
++
++const userLogin = (req, res) => {
++  console.log('req.body', req.body);
++  const { userName } = req.body;
++  
++  Users.findOne({ userName }, (err, user) => {
++    if (err) {
++      res.send(err);
++    }
++
++    res.json(user);
++  });
++};
++
++module.exports = {
++  getUsers,
++  getUser,
++  createUser,
++  updateUser,
++  userLogin,
++};

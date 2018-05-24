@@ -1,0 +1,52 @@
+diff --git a/client/src/App.css b/client/src/App.css
+index c5c6e8a..13e6d81 100644
+--- a/client/src/App.css
++++ b/client/src/App.css
+@@ -1,28 +1,11 @@
+ .App {
+-  text-align: center;
++  width: 1000px;
++  margin: 0 auto;
+ }
+ 
+-.App-logo {
+-  animation: App-logo-spin infinite 20s linear;
+-  height: 80px;
+-}
+ 
+-.App-header {
+-  background-color: #222;
+-  height: 150px;
+-  padding: 20px;
+-  color: white;
+-}
+-
+-.App-title {
+-  font-size: 1.5em;
+-}
+ 
+-.App-intro {
+-  font-size: large;
+-}
+-
+-@keyframes App-logo-spin {
+-  from { transform: rotate(0deg); }
+-  to { transform: rotate(360deg); }
+-}
++.ant-menu-item {
++  width: 25%;
++  text-align: center;
++}
+\ No newline at end of file
+diff --git a/client/src/App.js b/client/src/App.js
+index d27b651..143546b 100644
+--- a/client/src/App.js
++++ b/client/src/App.js
+@@ -1,6 +1,6 @@
+ import React, { Component } from 'react';
+ import logo from './logo.svg';
+-import './css/App.css';
++import './App.css';
+ import { Menu, Icon, Modal } from 'antd';
+ 
+ import Login from './components/Login';
