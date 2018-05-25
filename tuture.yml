@@ -7,12 +7,14 @@ steps:
     diff:
       - file: server/.gitignore
         explain: <YOUR EXPLANATION HERE>
+        collapse: true
       - file: server/app.js
         explain: <YOUR EXPLANATION HERE>
       - file: server/bin/www
         explain: <YOUR EXPLANATION HERE>
       - file: server/package-lock.json
         explain: <YOUR EXPLANATION HERE>
+        collapse: true
       - file: server/package.json
         explain: <YOUR EXPLANATION HERE>
       - file: server/public/stylesheets/style.css
@@ -33,8 +35,10 @@ steps:
     diff:
       - file: server/.gitignore
         explain: <YOUR EXPLANATION HERE>
+        collapse: true
       - file: server/package-lock.json
         explain: <YOUR EXPLANATION HERE>
+        collapse: true
       - file: server/package.json
         explain: <YOUR EXPLANATION HERE>
   - name: 数据库的配置与数据表的设计
@@ -91,6 +95,7 @@ steps:
     diff:
       - file: client/.gitignore
         explain: <YOUR EXPLANATION HERE>
+        collapse: true
       - file: client/README.md
         explain: <YOUR EXPLANATION HERE>
       - file: client/package.json
@@ -117,6 +122,7 @@ steps:
         explain: <YOUR EXPLANATION HERE>
       - file: client/yarn.lock
         explain: <YOUR EXPLANATION HERE>
+        collapse: true
   - name: Eject 项目，加入必要依赖
     commit: 52f3344
     explain: <YOUR EXPLANATION HERE>
@@ -141,6 +147,7 @@ steps:
         explain: <YOUR EXPLANATION HERE>
       - file: client/package-lock.json
         explain: <YOUR EXPLANATION HERE>
+        collapse: true
       - file: client/package.json
         explain: <YOUR EXPLANATION HERE>
       - file: client/scripts/build.js
@@ -151,6 +158,7 @@ steps:
         explain: <YOUR EXPLANATION HERE>
       - file: client/yarn.lock
         explain: <YOUR EXPLANATION HERE>
+        collapse: true
   - name: 构建主页
     commit: 682ba89
     explain: <YOUR EXPLANATION HERE>
@@ -194,4 +202,98 @@ steps:
       - file: client/src/App.css
         explain: <YOUR EXPLANATION HERE>
       - file: client/src/App.js
+        explain: <YOUR EXPLANATION HERE>
+  - name: add content for debug
+    commit: ee653bb
+    explain: <YOUR EXPLANATION HERE>
+    diff:
+      - file: .DS_Store
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/.DS_Store
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/332dd1e.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/3bc89ff.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/500aff0.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/516423b.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/52f3344.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/682ba89.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/7541d3e.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/98d256a.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/9b3f1a8.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/c875041.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/d24b783.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/d5461b4.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/e39fd88.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/ece55e7.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/diff/ef96d73.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/.babelrc
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/.gitignore
+        explain: <YOUR EXPLANATION HERE>
+        collapse: true
+      - file: .tuture/renderer/config/env.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/config/paths.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/config/polyfills.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/config/webpack.config.dev.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/config/webpackDevServer.config.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/package-lock.json
+        explain: <YOUR EXPLANATION HERE>
+        collapse: true
+      - file: .tuture/renderer/package.json
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/public/favicon.ico
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/public/index.html
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/public/manifest.json
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/scripts/start.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/App.css
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/App.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/Catalog.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/Content.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/ContentItem.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/Highlight.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/css/Catalog.css
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/css/Change.css
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/css/Content.css
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/css/Diff.css
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/css/Hunk.css
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/index.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/index.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: tuture.yml
         explain: <YOUR EXPLANATION HERE>
