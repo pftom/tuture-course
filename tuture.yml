@@ -297,3 +297,47 @@ steps:
         explain: <YOUR EXPLANATION HERE>
       - file: tuture.yml
         explain: <YOUR EXPLANATION HERE>
+  - name: 'renderer: completed new features'
+    commit: f316689
+    explain: <YOUR EXPLANATION HERE>
+    diff:
+      - file: .gitignore
+        explain: <YOUR EXPLANATION HERE>
+        collapse: true
+      - file: .tuture/.DS_Store
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/.babelrc
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/App.css
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/css/Catalog.css
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/css/Content.css
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/index.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: tuture.yml
+        explain: <YOUR EXPLANATION HERE>
+  - name: add switch view and hide files
+    commit: 520271a
+    explain: <YOUR EXPLANATION HERE>
+    diff:
+      - file: .gitignore
+        explain: <YOUR EXPLANATION HERE>
+        collapse: true
+      - file: .tuture/diff/ee653bb.diff
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/dataFormat.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/App.css
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/ContentItem.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: .tuture/renderer/src/components/css/ContentItem.css
+        explain: <YOUR EXPLANATION HERE>
+      - file: .vscode/launch.json
+        explain: <YOUR EXPLANATION HERE>
+      - file: server/chart.js
+        explain: <YOUR EXPLANATION HERE>
+      - file: server/user.js
+        explain: <YOUR EXPLANATION HERE>

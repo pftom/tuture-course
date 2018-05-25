@@ -75,7 +75,7 @@ export default class ContentItem extends Component {
 
   mapArrItemToObjValue = (property, arr) => {
     let resObj = {};
-    
+
     if (Array.isArray(arr)) {
       arr.map(item => {
         resObj[item[property]] = item;
@@ -116,7 +116,7 @@ export default class ContentItem extends Component {
   render() {
     const { files, diff, collapseObj } = this.state;
     const needRenderFiles = this.getEndRenderContent(diff, files);
-    
+
     return (
       <div className="ContentItem">
         {
@@ -125,7 +125,7 @@ export default class ContentItem extends Component {
               <article className="diff-file" key={i}>
                 <header className="diff-file-header">
                     <strong className="filename">{this.extractFileName(file)}</strong>
-                    <Button 
+                    <Button
                       onClick={() => this.toggleCollapse(file.file)}
                     >
                     {<Icon type={collapseObj[file.file] ? 'up' : 'down'} />}
