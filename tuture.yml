@@ -1,46 +1,46 @@
 name: My Awesome Tutorial
 language: English
 steps:
-  - name: 准备工作
+  - name: 我们一起来吃鸡ssssss
     commit: 7541d3e
-    explain: <YOUR EXPLANATION HERE>
+    explain: 一起来吃鸡啊ssssssssd2222222222ssssssd2222222222ssssss
     diff:
       - file: server/.gitignore
-        explain: <YOUR EXPLANATION HERE>
+        explain: You nesssssss ssssss ssss sss
         collapse: true
       - file: server/app.js
-        explain: <YOUR EXPLANATION HERE>
+        explain: We don't nwritssss ssssss sss
       - file: server/bin/www
-        explain: <YOUR EXPLANATION HERE>
+        explain: <YOUR EX
       - file: server/package-lock.json
-        explain: <YOUR EXPLANATION HERE>
+        explain: You need it ssss ssss sss
         collapse: true
       - file: server/package.json
-        explain: <YOUR EXPLANATION HERE>
+        explain: we don't hhhhhhh ssss sss
       - file: server/public/stylesheets/style.css
-        explain: <YOUR EXPLANATION HERE>
+        explain: <YOUR EXPLANAT
       - file: server/routes/index.js
-        explain: <YOUR EXPLANATION HERE>
+        explain: whatever  sss
       - file: server/routes/users.js
-        explain: <YOUR EXPLANATION HERE>
+        explain: sss
       - file: server/views/error.jade
-        explain: <YOUR EXPLANATION HERE>
+        explain: <YOUR EXsss
       - file: server/views/index.jade
-        explain: <YOUR EXPLANATION HERE>
+        explain: Things persistent sssss
       - file: server/views/layout.jade
-        explain: <YOUR EXPLANATION HERE>
+        explain: We need it
   - name: 服务器端依赖安装
     commit: ef96d73
     explain: <YOUR EXPLANATION HERE>
     diff:
       - file: server/.gitignore
-        explain: <YOUR EXPLANATION HERE>
+        explain: <YOUR EXPLAERE>
         collapse: true
       - file: server/package-lock.json
         explain: <YOUR EXPLANATION HERE>
         collapse: true
       - file: server/package.json
-        explain: <YOUR EXPLANATION HERE>
+        explain: ssssssssssssss
   - name: 数据库的配置与数据表的设计
     commit: ece55e7
     explain: <YOUR EXPLANATION HERE>

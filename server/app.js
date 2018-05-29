@@ -14,24 +14,23 @@ var topics = require('./routes/topics');
 
 var app = express();
 
-// view engine setup
+// 配置模板引擎
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// DB connection through Mongoose
+// 使用 mongoose 连接数据库的一系列配置
 const options = {
   server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
   replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
-}; // Just a bunch of options for the db connection
+}; 
 mongoose.Promise = global.Promise;
-// Don't forget to substitute it with your connection string
+
+// 连接的 mongodb 数据库地址
 mongoose.connect('mongodb://localhost/final', options);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
